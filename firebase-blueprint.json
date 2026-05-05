@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile for teachers and admins",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin", "teacher"] },
+        "impersonatedBy": { "type": "string", "description": "UID of the admin impersonating this user" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Rubric": {
+      "title": "Rubric",
+      "description": "Definition of a rubric for evaluation",
+      "type": "object",
+      "properties": {
+        "ownerId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "weight": { "type": "number" },
+              "levels": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "score": { "type": "number" },
+                    "description": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": ["ownerId", "title", "indicators"]
+    },
+    "Group": {
+      "title": "Group",
+      "description": "A group of students",
+      "type": "object",
+      "properties": {
+        "ownerId": { "type": "string" },
+        "name": { "type": "string" },
+        "students": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" }
+            }
+          }
+        }
+      },
+      "required": ["ownerId", "name", "students"]
+    },
+    "Evaluation": {
+      "title": "Evaluation",
+      "description": "Result of an evaluation for a student using a rubric",
+      "type": "object",
+      "properties": {
+        "ownerId": { "type": "string" },
+        "rubricId": { "type": "string" },
+        "groupId": { "type": "string" },
+        "studentId": { "type": "string" },
+        "selections": { "type": "object", "description": "Map of indicator index to level index" },
+        "score": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["ownerId", "rubricId", "groupId", "studentId", "selections", "score"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": { "schema": "User", "description": "User profiles" },
+    "/rubrics/{rubricId}": { "schema": "Rubric", "description": "Rubric definitions" },
+    "/groups/{groupId}": { "schema": "Group", "description": "Student groups" },
+    "/evaluations/{evaluationId}": { "schema": "Evaluation", "description": "Evaluation results" }
+  }
+}

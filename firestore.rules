@@ -1,0 +1,137 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: userId (UID)
+    // Fields:
+    //   - uid: string (required)
+    //   - email: string (required, email format)
+    //   - role: string (required, 'admin' or 'teacher')
+    //   - impersonatedBy: string (optional, UID)
+    //
+    // Collection: rubrics
+    // Document ID: rubricId
+    // Fields:
+    //   - ownerId: string (required)
+    //   - title: string (required)
+    //   - description: string (optional)
+    //   - indicators: list (required)
+    //
+    // Collection: groups
+    // Document ID: groupId
+    // Fields:
+    //   - ownerId: string (required)
+    //   - name: string (required)
+    //   - students: list (required)
+    //
+    // Collection: evaluations
+    // Document ID: evaluationId
+    // Fields:
+    //   - ownerId: string (required)
+    //   - rubricId: string (required)
+    //   - groupId: string (required)
+    //   - studentId: string (required)
+    //   - selections: map (required)
+    //   - score: number (required)
+    //   - updatedAt: timestamp (optional)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+          (request.auth.token.email == "pfelipm@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.ownerId;
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser(data) {
+      return data.uid is string &&
+             data.email is string &&
+             data.role in ['admin', 'teacher'];
+    }
+
+    function isValidRubric(data) {
+      return data.ownerId is string &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
+             data.indicators is list && data.indicators.size() <= 50;
+    }
+
+    function isValidGroup(data) {
+      return data.ownerId is string &&
+             data.name is string && data.name.size() > 0 && data.name.size() < 200 &&
+             data.students is list && data.students.size() <= 200;
+    }
+
+    function isValidEvaluation(data) {
+      return data.ownerId is string &&
+             data.rubricId is string &&
+             data.groupId is string &&
+             data.studentId is string &&
+             data.selections is map &&
+             data.score is number && data.score >= 0 && data.score <= 10;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isAuthenticated() && isValidUser(request.resource.data) && (isOwner(userId) || isAdmin());
+      allow update: if isAuthenticated() && isValidUser(request.resource.data) && (isOwner(userId) || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    match /rubrics/{rubricId} {
+      allow read: if isDocOwner() || isAdmin();
+      allow create: if isAuthenticated() && isValidRubric(request.resource.data) && (request.resource.data.ownerId == request.auth.uid || isAdmin());
+      allow update: if isAuthenticated() && isValidRubric(request.resource.data) && (isDocOwner() || isAdmin());
+      allow delete: if isDocOwner() || isAdmin();
+    }
+
+    match /groups/{groupId} {
+      allow read: if isDocOwner() || isAdmin();
+      allow create: if isAuthenticated() && isValidGroup(request.resource.data) && (request.resource.data.ownerId == request.auth.uid || isAdmin());
+      allow update: if isAuthenticated() && isValidGroup(request.resource.data) && (isDocOwner() || isAdmin());
+      allow delete: if isDocOwner() || isAdmin();
+    }
+
+    match /evaluations/{evaluationId} {
+      allow read: if isDocOwner() || isAdmin();
+      allow create: if isAuthenticated() && isValidEvaluation(request.resource.data) && (request.resource.data.ownerId == request.auth.uid || isAdmin());
+      allow update: if isAuthenticated() && isValidEvaluation(request.resource.data) && (isDocOwner() || isAdmin());
+      allow delete: if isDocOwner() || isAdmin();
+    }
+  }
+}
