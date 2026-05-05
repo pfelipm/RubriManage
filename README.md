@@ -61,7 +61,7 @@ Este movimiento coincide con el anuncio del fin de ciclo de **Firebase Studio**,
   <img src="assets/rubrimanager5.png" width="800" alt="Progreso de evaluación" />
   <br><br>
   <p><strong>Panel de analíticas y distribución de notas</strong></p>
-  <img src="assets/rubrimanage6.png" width="800" alt="Dashboard de analíticas" />
+  <img src="assets/rubrimanager6.png" width="800" alt="Dashboard de analíticas" />
   <br><br>
   <p><strong>Administración y gestión de usuarios</strong></p>
   <img src="assets/rubrimanager7.png" width="800" alt="Panel de administración" />
