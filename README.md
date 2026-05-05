@@ -42,6 +42,21 @@ Este movimiento coincide con el anuncio del fin de ciclo de **Firebase Studio**,
 
 ---
 
+## 📸 Galería de capturas
+
+<div align="center">
+  <img src="assets/rubrimanager1.png" width="400" alt="Vista principal" />
+  <img src="assets/rubrimanager2.png" width="400" alt="Editor de rúbricas" />
+  <img src="assets/rubrimanager3.png" width="400" alt="Importación de datos" />
+  <img src="assets/rubrimanager4.png" width="400" alt="Evaluador interactivo" />
+  <img src="assets/rubrimanager5.png" width="400" alt="Progreso de evaluación" />
+  <img src="assets/rubrimanage6.png" width="400" alt="Dashboard de analíticas" />
+  <img src="assets/rubrimanager7.png" width="400" alt="Panel de administración" />
+  <img src="assets/rubrimanager8.png" width="400" alt="Modo oscuro" />
+</div>
+
+---
+
 ## 👥 Capacidades multiusuario
 
 RubriManage está diseñada desde cero para soportar un entorno colaborativo y jerárquico:
