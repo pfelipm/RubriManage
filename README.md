@@ -2,19 +2,92 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# 🎓 RubriManage
+### Explorando el Vibe-Coding Full-Stack con Google AI Studio
 
-This contains everything you need to run your app locally.
+**RubriManage** es un prototipo funcional de una herramienta de gestión de rúbricas y evaluación docente, diseñada para simplificar el flujo de trabajo en el aula. Este proyecto no es un producto comercial, sino un **experimento educativo y técnico** para explorar las capacidades de la nueva era de desarrollo de Google.
 
-View your app in AI Studio: https://ai.studio/apps/5e26f1b7-3b59-4923-93f9-97710886c4a4
+---
 
-## Run Locally
+## 🚀 Acceso y Remix en AI Studio
 
-**Prerequisites:**  Node.js
+La aplicación ha sido desarrollada íntegramente utilizando las capacidades full-stack de **Google AI Studio**. No se ha realizado un despliegue en producción (por costes de infraestructura), pero puedes probarla, inspeccionar su código y "remixearla" directamente aquí:
 
+👉 **[Abrir RubriManage en AI Studio](https://ai.studio/apps/5e26f1b7-3b59-4923-93f9-97710886c4a4)**
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## 📅 El Contexto: La era del "Vibe-Coding" (Marzo 2026)
+
+Este proyecto nace aprovechando el revolucionario anuncio de Google en marzo de 2026: 
+🔗 **[Full-stack vibe-coding in Google AI Studio](https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio)**
+
+Esta actualización permite a AI Studio configurar automáticamente un backend completo en **Firebase**, gestionando de forma transparente:
+- Autenticación con Google.
+- Reglas de seguridad de Firestore basadas en lenguaje natural.
+- Definición semántica de datos mediante Blueprints.
+- Gestión de claves de API y entornos de ejecución.
+
+Este movimiento coincide con el anuncio del fin de ciclo de **Firebase Studio**, señalando a AI Studio como el nuevo "flagship" de Google para una experiencia de desarrollo asistida por IA donde la barrera entre la idea y la ejecución desaparece.
+
+---
+
+## ✨ Capacidades Funcionales
+
+- **Gestión de Rúbricas:** Creación, edición y duplicación de rúbricas con indicadores ponderados y niveles de logro personalizados.
+- **Importación Inteligente:** Pegado directo de tablas desde Word o Google Docs para generar rúbricas instantáneamente.
+- **Evaluador Ágil:** Interfaz optimizada con atajos de teclado para evaluar estudiantes en segundos.
+- **Dashboard de Analíticas:** Visualización de la media del grupo y distribución de notas mediante gráficos interactivos.
+- **Panel de Administración:** Gestión de roles y supervisión de usuarios.
+- **Portabilidad:** Exportación de datos en formatos JSON (rúbricas) y CSV (calificaciones).
+
+---
+
+## 🛠️ Arquitectura Técnica
+
+- **Frontend:** React 19 + Vite + TypeScript.
+- **Estilos:** Tailwind CSS 4 (diseño moderno y soporte nativo de modo oscuro).
+- **Backend:** Firebase (Firestore + Auth) configurado automáticamente por AI Studio.
+- **Componentes:** Lucide React (iconos), Framer Motion (animaciones), Recharts (gráficos), dnd-kit (drag & drop).
+- **IA Integration:** Preparado para usar `@google/genai` (Gemini) en la generación asistida de criterios.
+
+---
+
+## 🛡️ Privacidad y Transparencia
+
+**Aviso Importante para Usuarios:**
+Al tratarse de una aplicación de demostración alojada en un entorno de "Applet" de AI Studio:
+1. **Almacenamiento:** Toda la información que introduzcas (grupos, estudiantes, evaluaciones) se guarda en un proyecto de Firebase propiedad del autor.
+2. **Acceso del Administrador:** La aplicación incluye un panel de administración que permite al autor visualizar la lista de usuarios y, mediante una funcionalidad de **impersonación**, ver la aplicación exactamente como la ves tú.
+3. **Uso Educativo:** Se recomienda no introducir datos personales reales o sensibles, ya que el propósito de este repositorio es puramente demostrativo y educativo.
+
+---
+
+## 💻 Ejecución Local
+
+Si deseas ejecutar este proyecto en tu propia máquina:
+
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/pfelipm/RubriManage.git
+   cd RubriManage
+   ```
+2. **Instala las dependencias:**
+   ```bash
+   npm install
+   ```
+3. **Configura el entorno:**
+   Crea un archivo `.env.local` y añade tu `GEMINI_API_KEY`.
+4. **Lanza el entorno de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 📄 Licencia
+
+Este proyecto se distribuye bajo la licencia **MIT**. Siéntete libre de usarlo para aprender, mejorar tus flujos de trabajo de evaluación o como base para tus propios experimentos de vibe-coding.
+
+---
+*Creado con ❤️ por [Pablo Felip](https://github.com/pfelipm) en Google AI Studio.*
