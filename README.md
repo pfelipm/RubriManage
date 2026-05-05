@@ -45,29 +45,14 @@ Este movimiento coincide con el anuncio del fin de ciclo de **Firebase Studio**,
 ## 📸 Galería de capturas
 
 <div align="center">
-  <p><strong>Vista principal y gestión de rúbricas</strong></p>
-  <img src="assets/rubrimanager1.png" width="800" alt="Vista principal" />
-  <br><br>
-  <p><strong>Editor avanzado de indicadores y niveles</strong></p>
-  <img src="assets/rubrimanager2.png" width="800" alt="Editor de rúbricas" />
-  <br><br>
-  <p><strong>Importación inteligente mediante pegado de tablas</strong></p>
-  <img src="assets/rubrimanager3.png" width="800" alt="Importación de datos" />
-  <br><br>
-  <p><strong>Interfaz de evaluación ágil</strong></p>
-  <img src="assets/rubrimanager4.png" width="800" alt="Evaluador interactivo" />
-  <br><br>
-  <p><strong>Seguimiento del progreso por estudiante</strong></p>
-  <img src="assets/rubrimanager5.png" width="800" alt="Progreso de evaluación" />
-  <br><br>
-  <p><strong>Panel de analíticas y distribución de notas</strong></p>
-  <img src="assets/rubrimanager6.png" width="800" alt="Dashboard de analíticas" />
-  <br><br>
-  <p><strong>Administración y gestión de usuarios</strong></p>
-  <img src="assets/rubrimanager7.png" width="800" alt="Panel de administración" />
-  <br><br>
-  <p><strong>Soporte nativo para modo oscuro</strong></p>
-  <img src="assets/rubrimanager8.png" width="800" alt="Modo oscuro" />
+  <img src="assets/rubrimanager1.png" width="800" alt="Captura 1" />
+  <img src="assets/rubrimanager2.png" width="800" alt="Captura 2" />
+  <img src="assets/rubrimanager3.png" width="800" alt="Captura 3" />
+  <img src="assets/rubrimanager4.png" width="800" alt="Captura 4" />
+  <img src="assets/rubrimanager5.png" width="800" alt="Captura 5" />
+  <img src="assets/rubrimanager6.png" width="800" alt="Captura 6" />
+  <img src="assets/rubrimanager7.png" width="800" alt="Captura 7" />
+  <img src="assets/rubrimanager8.png" width="800" alt="Captura 8" />
 </div>
 
 ---
