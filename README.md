@@ -59,7 +59,6 @@ RubriManage está diseñada desde cero para soportar un entorno colaborativo y j
 - **Estilos:** Tailwind CSS 4 (diseño moderno y soporte nativo de modo oscuro).
 - **Backend:** Firebase (Firestore + Auth) configurado automáticamente por AI Studio.
 - **Componentes:** Lucide React (iconos), Framer Motion (animaciones), Recharts (gráficos), dnd-kit (drag & drop).
-- **Integración de IA:** preparado para usar `@google/genai` (Gemini) en la generación asistida de criterios.
 
 ---
 
@@ -73,9 +72,9 @@ Al tratarse de una aplicación de demostración alojada en un entorno de "applet
 
 ---
 
-## 💻 Ejecución local
+## 💻 Exploración en local
 
-Si deseas ejecutar este proyecto en tu propia máquina:
+Si deseas inspeccionar el código o ejecutar el proyecto en tu propia máquina:
 
 1. **Clona el repositorio:**
    ```bash
@@ -86,12 +85,12 @@ Si deseas ejecutar este proyecto en tu propia máquina:
    ```bash
    npm install
    ```
-3. **Configura el entorno:**
-   crea un archivo `.env.local` y añade tu `GEMINI_API_KEY`.
-4. **Lanza el entorno de desarrollo:**
+3. **Lanza el entorno de desarrollo:**
    ```bash
    npm run dev
    ```
+
+*Nota: la ejecución local seguirá conectada al proyecto Firebase del autor definido en `firebase-applet-config.json`.*
 
 ---
 
