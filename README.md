@@ -87,7 +87,7 @@ RubriManage está diseñada desde cero para soportar un entorno colaborativo y j
 
 - **Frontend:** React 19 + Vite + TypeScript.
 - **Estilos:** Tailwind CSS 4 (diseño moderno y soporte nativo de modo oscuro).
-- **Backend:** Firebase (Firestore + Auth) configurado automáticamente por AI Studio.
+- **Backend:** Firebase (Firestore + Auth) configurado automáticamente por AI Studio en su **plan gratuito (Spark)**, lo que garantiza coste cero para este experimento.
 - **Componentes:** Lucide React (iconos), Framer Motion (animaciones), Recharts (gráficos), dnd-kit (drag & drop).
 
 ---
