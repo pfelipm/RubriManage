@@ -17,6 +17,7 @@ export interface Rubric {
   ownerId: string;
   title: string;
   description?: string;
+  author?: string;
   indicators: Indicator[];
   maxScore: number;
   createdAt?: any;
