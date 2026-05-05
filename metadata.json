@@ -1,5 +1,6 @@
 {
   "name": "RubriManage",
-  "description": "",
-  "requestFramePermissions": []
+  "description": "RubriManage es una herramienta de evaluación eficiente y centrada en el flujo de trabajo nacida para simplificar la vida a los docentes. Olvida las hojas de cálculo complejas: aquí evalúas con un clic y obtienes analíticas en tiempo real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
 }
